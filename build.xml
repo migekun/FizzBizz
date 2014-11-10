@@ -1,0 +1,25 @@
+<project>
+	<target name="clear">
+		<delete dir="build" />
+	</target>
+	<target name="compile">
+		<mkdir dir="build/classes" />
+		<javac srcdir="src/game" destdir="build/classes" />
+	</target>
+	<target name="jar">
+		<mkdir dir="build/jar" />
+		<jar destfile="build/jar/FizzBizzGame.jar" basedir="build/classes">
+			<manifest>
+				<attribute name="Main-Class" value="game.FizzBizzGame" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="run">
+		<java jar="build/jar/FizzBizzGame.jar" fork="true">
+			<arg value="${arg0}"/>
+		</java>
+	</target>
+
+
+</project>
